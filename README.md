@@ -64,3 +64,27 @@ docker build -t trading-app .
 ```
 
 To run the Docker container, you will need to provide the necessary environment variables for the database and Kite Connect API credentials.
+
+### Running with Docker Compose
+
+The easiest way to run the application with a PostgreSQL database is to use Docker Compose. This will start both the application and the database with a single command.
+
+1.  **Configure Environment Variables:**
+    Before running, you will need to provide your Kite Connect API credentials. You can do this by creating a `.env` file in the root of the project with the following content:
+
+    ```
+    KITE_API_KEY=YOUR_API_KEY
+    KITE_API_SECRET=YOUR_API_SECRET
+    KITE_REQUEST_TOKEN=YOUR_REQUEST_TOKEN
+    ```
+
+    You can also update the `POSTGRES_USER` and `POSTGRES_PASSWORD` in the `docker-compose.yml` file if needed.
+
+2.  **Start the Application Stack:**
+    Run the following command from the root of the project:
+
+    ```bash
+    docker-compose up --build
+    ```
+
+    This will build the application's Docker image and start both the application and database containers.
